@@ -6,7 +6,7 @@ faster choice.
 
 (Why this exists)
 
-I'm into motorsport, and I wanted a hands-on excuse to get comfortable with
+I've always had a passion for motorsports, and I wanted a hands-on excuse to get comfortable with
 pandas and matplotlib on data I actually cared about. Lap times are a nice
 dataset for this: small enough to iterate quickly, structured enough to do
 real analysis, and the domain has enough texture (compound choice, fuel
