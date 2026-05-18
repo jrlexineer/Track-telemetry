@@ -1,10 +1,12 @@
+## gc-email-triage
+
 A Python tool that ingests racing telemetry (lap times, sector splits) and
 turns the time-degradation curve into a rough tire wear strategy — how many
 laps you can push before the tires drop off enough that pitting becomes the
 faster choice.
 
 
-(Why this exists)
+## Why this exists
 
 I've always had a passion for motorsports, and I wanted a hands-on excuse to get comfortable with
 pandas and matplotlib on data I actually cared about. Lap times are a nice
@@ -18,7 +20,7 @@ fit a degradation curve and tell you roughly where the crossover point is
 between staying out and pitting.
 
 
-(What it does)
+## What it does
 
 - Loads lap-time CSVs (one row per lap: lap number, time, compound, optional sector splits)
 - Cleans out in/out laps and obvious outliers (safety car laps, mistakes)
@@ -29,7 +31,7 @@ between staying out and pitting.
 - Plots the whole thing so you can eyeball whether the model is sane
 
 
-(Stack)
+## Stack
 
 - Python 3.10+
 - pandas — data manipulation
@@ -40,20 +42,18 @@ between staying out and pitting.
 Dependencies are pinned in `requirements.txt`.
 
 
-(Setup)
+## Setup
 
 ```bash
-
 git clone https://github.com/jrlexineer/track-telemetry-analysis.git
 cd track-telemetry-analysis
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-
 ```
 
 
-(Running it)
+## Running it
 
 There's a sample dataset in `data/sample_stint.csv` so you can try it without any setup:
 
@@ -65,23 +65,24 @@ python analyze.py --input data/sample_stint.csv --pit-loss 22.5
 
 The `--pit-loss` flag is the time cost of a pit stop in seconds — entry, stop, and exit, minus what you'd lose driving past the pit lane. 22.5s is a rough average for a permanent circuit; street circuits run higher.
 
-(What you'll see)
+## What you'll see
 
 You get two things back: a printed summary and a saved plot.
 
+```
 The summary looks something like this:
-  Stint summary: medium compound, 24 laps
-  Baseline pace (laps 3-5): 1:32.412
-  Degradation rate: 0.041 s/lap (linear fit, R² = 0.87)
-  Projected pace at lap 30: 1:33.640
-  Crossover with pit-loss 22.5s: lap 27
-  Recommendation: pit window opens lap 25, optimal stop lap 27
-
+Stint summary: medium compound, 24 laps
+Baseline pace (laps 3-5): 1:32.412
+Degradation rate: 0.041 s/lap (linear fit, R² = 0.87)
+Projected pace at lap 30: 1:33.640
+Crossover with pit-loss 22.5s: lap 27
+Recommendation: pit window opens lap 25, optimal stop lap 27
+```
 
 The plot shows lap times with the fitted degradation curve, the projection forward, and a vertical line at the crossover lap. Saved to `output/`.
 
 
-(What I'd do differently if I rebuilt it today)
+## What I'd do differently if I rebuilt it today
 
 A few things, in rough order of how much they bug me:
 
