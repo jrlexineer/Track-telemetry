@@ -1,4 +1,4 @@
-## gc-email-triage
+# Track Telemetry Analysis
 
 A Python tool that ingests racing telemetry (lap times, sector splits) and
 turns the time-degradation curve into a rough tire wear strategy — how many
@@ -58,9 +58,7 @@ pip install -r requirements.txt
 There's a sample dataset in `data/sample_stint.csv` so you can try it without any setup:
 
 ```bash
-
 python analyze.py --input data/sample_stint.csv --pit-loss 22.5
-
 ```
 
 The `--pit-loss` flag is the time cost of a pit stop in seconds — entry, stop, and exit, minus what you'd lose driving past the pit lane. 22.5s is a rough average for a permanent circuit; street circuits run higher.
