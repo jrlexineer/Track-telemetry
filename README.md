@@ -69,8 +69,8 @@ The `--pit-loss` flag is the time cost of a pit stop in seconds — entry, stop,
 
 You get two things back: a printed summary and a saved plot.
 
-```
 The summary looks something like this:
+```
 Stint summary: medium compound, 24 laps
 Baseline pace (laps 3-5): 1:32.412
 Degradation rate: 0.041 s/lap (linear fit, R² = 0.87)
